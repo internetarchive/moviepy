@@ -38,9 +38,9 @@ def _get_PIL_resizer():
 
         pil_img = Image.fromarray(pic)
         resized_pil = pil_img.resize(new_size[::-1], Image.ANTIALIAS)
-        # arr = np.fromstring(resized_pil.tostring(), dtype="uint8")
-        # arr.reshape(newshape)
-        return np.array(resized_pil)
+        arr = np.fromstring(resized_pil.tostring(), dtype="uint8")
+        return arr.reshape(newshape)
+        # return np.array(resized_pil)
 
     return (resizer, [])
 
