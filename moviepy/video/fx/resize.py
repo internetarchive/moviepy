@@ -30,11 +30,11 @@ def _get_PIL_resizer():
 
     def resizer(pic, new_size):
         new_size = list(map(int, new_size))[::-1]
-        # shape = pic.shape
-        # if len(shape) == 3:
-        #     newshape = (new_size[0], new_size[1], shape[2])
-        # else:
-        #     newshape = (new_size[0], new_size[1])
+        shape = pic.shape
+        if len(shape) == 3:
+            newshape = (new_size[0], new_size[1], shape[2])
+        else:
+            newshape = (new_size[0], new_size[1])
 
         pil_img = Image.fromarray(pic)
         resized_pil = pil_img.resize(new_size[::-1], Image.ANTIALIAS)
