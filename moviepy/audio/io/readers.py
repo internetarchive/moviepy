@@ -168,6 +168,9 @@ class FFMPEG_AudioReader:
 
     def get_frame(self, tt):
         """TODO: add documentation"""
+        
+        tt.clip(0, self.duration - 1.0 / self.fps, tt)
+        
         if isinstance(tt, np.ndarray):
             # lazy implementation, but should not cause problems in
             # 99.99 %  of the cases
